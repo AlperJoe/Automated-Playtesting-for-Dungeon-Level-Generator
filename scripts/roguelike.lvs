@@ -25,6 +25,8 @@ tag room { start, exit, boss, reward, hub, challenge }
 params {
     min_room_size : number = 5
     max_room_size : number = 5
+    enemy_percent : number = 12
+    item_percent  : number = 15
 }
 
 layers {
@@ -241,7 +243,7 @@ sequence main {
     once place_player_and_entrance
     once place_exit             // @hold=10
     once place_pillars          // @hold=10
-    scatter(15%) place_items        
-    scatter(12%) place_enemies
+    scatter(item_percent%) place_items        
+    scatter(enemy_percent%) place_enemies
     scatter(20%) place_vegetation   // @speed=20
 }
