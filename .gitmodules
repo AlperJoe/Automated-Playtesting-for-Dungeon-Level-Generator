@@ -1,0 +1,3 @@
+[submodule "external/levelscript"]
+	path = external/levelscript
+	url = https://github.com/AlperJoe/levelscript.git
