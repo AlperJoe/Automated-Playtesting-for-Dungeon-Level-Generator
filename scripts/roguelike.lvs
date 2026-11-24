@@ -23,10 +23,12 @@ tag entities {
 tag room { start, exit, boss, reward, hub, challenge }
 
 params {
-    min_room_size : number = 5
-    max_room_size : number = 5
-    enemy_percent : number = 12
-    item_percent  : number = 15
+    map_width          : number = 24
+    map_height         : number = 16
+    enemy_percent      : number = 12
+    item_percent       : number = 15
+    min_room_size      : number = 5
+    max_room_size      : number = 5
 }
 
 layers {
@@ -219,7 +221,7 @@ rule place_vegetation {
 }
 
 sequence main {
-    resize(24, 16)
+    resize(map_width, map_height)
     bsp(into=zones, min=min_room_size, max=max_room_size)
 
     everywhere border       // @speed=2

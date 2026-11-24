@@ -1,8 +1,10 @@
 #pragma once
 #include "map.hpp"
 
-// Draws the map into the current ImGui window, scaled to fit the space left.
-void draw_map(const Map& map);
+// Draws the map into the current ImGui window, inside a box of the given
+// height and the full available width. The empty border around the level is
+// cropped and the map is centred.
+void draw_map(const Map& map, float height);
 
-// A one-line key for the entity symbols, with how many of each the map has.
-void draw_legend(const Map& map);
+// One row with the map symbols and their names.
+void draw_legend();

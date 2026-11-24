@@ -100,6 +100,12 @@ void LevelSource::reset_params() {
     for (auto& p : params_) p.value = p.default_value;
 }
 
+Param* LevelSource::find_param(const std::string& name) {
+    for (auto& p : params_)
+        if (p.name == name && p.editable) return &p;
+    return nullptr;
+}
+
 bool LevelSource::set_param(const std::string& name, int value) {
     for (auto& p : params_)
         if (p.name == name && p.editable) { p.value = value; return true; }

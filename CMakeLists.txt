@@ -51,13 +51,16 @@ add_subdirectory(external/levelscript/src)   # defines ls_lib
 # ── The tool ──────────────────────────────────────────────────────────────────
 add_executable(playtester
     src/main.cpp
+    src/level_check.cpp
     src/level_source.cpp
+    src/ui_style.cpp
     src/map.cpp
     src/map_view.cpp
 )
 target_link_libraries(playtester PRIVATE ls_lib imgui_lib)
 target_compile_definitions(playtester PRIVATE
-    DEFAULT_SCRIPT="${CMAKE_SOURCE_DIR}/scripts/roguelike.lvs")
+    DEFAULT_SCRIPT="${CMAKE_SOURCE_DIR}/scripts/roguelike.lvs"
+    ASSET_DIR="${CMAKE_SOURCE_DIR}/assets")
 if(MSVC)
     target_compile_options(playtester PRIVATE /W4)
 else()

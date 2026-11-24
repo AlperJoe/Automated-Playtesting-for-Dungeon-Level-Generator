@@ -32,6 +32,7 @@ public:
     std::vector<Param>& params()     { return params_; }
     void reset_params();
     bool set_param(const std::string& name, int value);
+    Param* find_param(const std::string& name);   // nullptr if the script has no such param
 
 private:
     std::string        path_;
